@@ -4,12 +4,17 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Currently a student and part-time developer, I'm passionate about C# and ASP.NET 5.
 
-### More Information
+I also like to work with: LINQ, Dapper, Dommel, Dependency Injection and Domain Driven Design.
 
-A place to include any other types of information that you'd like to include about yourself.
+<hr>
+
+[Github repositories:](https://github.com/henkmollema)
+  - [Dapper.FluentMap](https://github.com/henkmollema/Dapper-FluentMap)
+  - [Dommel](https://github.com/henkmollema/Dommel)
+  - [CryptoHelper](https://github.com/henkmollema/CryptoHelper)
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[henkmollema@gmail.com](mailto:henkmollema@gmail.com)
