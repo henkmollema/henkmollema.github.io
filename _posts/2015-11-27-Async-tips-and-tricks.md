@@ -1,4 +1,7 @@
-# Async tips and tricks
+---
+layout: post
+title: Async tips and tricks
+---
 
 The `async` and `await` keywords along with the `Task` and `Task<T>` classes provide a great way to do asynchronous work in C#. However, there might be some confusion when to mark a method as `async`, when to `await` a task and when to use the `Task` class. In this post I will try to clear some things up using some simple examples.
 
