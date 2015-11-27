@@ -10,10 +10,10 @@ I also like to work with: LINQ, Dapper, Dommel, Dependency Injection and Domain 
 
 <hr>
 
-[GitHub repositories:](https://github.com/henkmollema)
-- [Dapper.FluentMap](https://github.com/henkmollema/Dapper-FluentMap)
-- [Dommel](https://github.com/henkmollema/Dommel)
-- [CryptoHelper](https://github.com/henkmollema/CryptoHelper)
+[GitHub repositories:](https://github.com/henkmollema)  
+- [Dapper.FluentMap](https://github.com/henkmollema/Dapper-FluentMap)  
+- [Dommel](https://github.com/henkmollema/Dommel)  
+- [CryptoHelper](https://github.com/henkmollema/CryptoHelper)  
 
 ### Contact me
 
