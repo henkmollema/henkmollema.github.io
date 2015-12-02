@@ -64,7 +64,7 @@ public Task HandleAsync(SomeCommand command)
 The exception for the above is when you have some async intermediate method which you await, you should await when returning too:
 
 ```csharp
-public Task<Result> HandleAsync(SomeQuery query)
+public async Task<Result> HandleAsync(SomeQuery query)
 {
     var intermediate = await _repository.GetAsync(query);
     return await _dispatcher.DispatchQuery(intermediate);
