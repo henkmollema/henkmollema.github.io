@@ -40,6 +40,7 @@ public class ConsoleWriterOptions
 ```
 
 The `ConsoleWriter` class can be added to the services using a convient extension method:
+
 ```csharp
 public static void AddConsoleWriter(this IServiceCollection services)
 {
@@ -48,6 +49,7 @@ public static void AddConsoleWriter(this IServiceCollection services)
 ```
 
 Using that we can add the service:
+
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -63,6 +65,7 @@ Now we want to configure those `ConsoleWriterOptions` to change the message bein
 
 ### Manual configuration
 To enable manual configuration of the options, we add an `Action<ConsoleWriterOptions>` parameter to the `AddConsoleWriter` method:
+
 ```
 public static void AddConsoleWriter(this IServiceCollection services, Action<ConsoleWriterOptions> setupAction)
 {
@@ -75,6 +78,7 @@ public static void AddConsoleWriter(this IServiceCollection services, Action<Con
 ```
 
 The `Configure` method is part of the Options API and accepts a `Action<TOptions>` parameter which in turn creates a `new ConfigureOptions<TOptions>` instance and calls `ConfigureOptions`. When the application is build, it will create an instance of the `ConsoleWriterOptions` class and apply the action we pass in the lambda expression. We can use it like this:
+
 ```csharp
 services.AddConsoleWriter(x => x.Message = "Hello world!");
 ```
@@ -85,6 +89,7 @@ If we activate an instance of our `ConsoleWriter`, the runtime will inject an in
 While this is nice, we usually want dynamic settings that can be changed at runtime. The [Configuration API](https://github.com/aspnet/Configuration/) allows us to populate our POCO options from a JSON file.
 
 Let's add JSON file called `config.json`:
+
 ```json
 {
   "ConsoleWriter": {
@@ -94,6 +99,7 @@ Let's add JSON file called `config.json`:
 ```
 
 The `ConsoleWriter` element in the JSON file is the section we're going to use to populate our `ConsoleWriterOptions` object. To accomplish this, add another overload of `AddConsoleWriter`:
+
 ```csharp
 public static void AddConsoleWriter(this IServiceCollection services, IConfigurationSection config)
 {
@@ -106,6 +112,7 @@ public static void AddConsoleWriter(this IServiceCollection services, IConfigura
 ```
 
 To add the `config.json` file to our app, add a constructor in the startup class:
+
 ```csharp
 public Startup()
 {
@@ -118,16 +125,19 @@ private IConfiguration Configuration { get; }
 ```
 
 And call our new overload:
+
 ```csharp
 services.AddConsoleWriter(Configuration.GetSection("ConsoleWriter"));
 ```
 
 We retrieve the section in the configuration properties by its name: `ConsoleWriter`. If we'd run the app, it will print:
+
 ```
 Hello World from config.json!
 ```
 
 We can make our live a bit easier by using a default section name in the component registration:
+
 ```csharp
 public static void AddConsoleWriter(this IServiceCollection services, IConfiguration config)
 {
@@ -137,6 +147,7 @@ public static void AddConsoleWriter(this IServiceCollection services, IConfigura
 ```
 
 The `OrSection` method is a nifty extension method to help us:
+
 ```csharp
 public static IConfigurationSection OrSection(this IConfiguration config, string key)
 {
@@ -151,6 +162,7 @@ services.AddConsoleWriter(Configuration);
 ```
 
 And it will use thed default `ConsoleWriter` section. However, if the settings happens to be in another section, we can still pass that section:
+
 ```csharp
 services.AddConsoleWriter(Configuration.GetSection("App:CustomConsoleWriter"));
 ```
@@ -159,6 +171,7 @@ services.AddConsoleWriter(Configuration.GetSection("App:CustomConsoleWriter"));
 Beside component settings, we could also have application-wide settings. These settings might be populated by components being added to the application.
 
 For example, we have a class `AppSettings`:
+
 ```csharp
 public class AppSettings
 {
@@ -179,6 +192,7 @@ public class ConfigureAppSettings : IConfigureOptions<AppSettings>
 ```
 
 The interface defines a method `Configure(T options)` which gets called by the Options framework when the options are being build. We have to configure this interface in the services:
+
 ```csharp
 services.ConfigureOptions<ConfigureAppSettings>();
 ```
