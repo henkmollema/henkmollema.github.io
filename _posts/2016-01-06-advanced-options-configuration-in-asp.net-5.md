@@ -187,3 +187,5 @@ This adds the `IConfigureOptions<AppSettings>` implementation to the service col
 
 ## Conclusion
 We're now able to write modular and reusable components and pass in configuration at application startup either manually or from a configuration source. We also learned how components can populate application wide settings using the `IConfigureOptions<T>` interface.
+
+The source code for this post is available [here](https://github.com/henkmollema/henkmollema.github.io/tree/master/samples/ComponentOptions).
