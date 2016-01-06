@@ -11,10 +11,17 @@
 }
 
 code {
-  font-family:'Consolas', 'Bitstream Vera Sans Mono','Courier', monospace;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-family:'Consolas', 'Bitstream Vera Sans Mono','Courier', monospace;
 }
 
-div.highlight { font-size: 14px; } 
+div.highlight code {
+    background-color: inherit;
+    font-size: 14px; 
+} 
 
 .highlight .c { color: #26A65B   } /* Comment */
 .highlight .err { color: #93A1A1 } /* Error */
@@ -50,7 +57,7 @@ div.highlight { font-size: 14px; }
 .highlight .s { color: #2AA198 } /* Literal.String */
 .highlight .na { color: #93A1A1 } /* Name.Attribute */
 .highlight .nb { color: #B58900 } /* Name.Builtin */
-.highlight .nc { color: #2B91AF } /* Name.Class */
+.highlight .nc { color: #52B3D9 } /* Name.Class */
 .highlight .no { color: #CB4B16 } /* Name.Constant */
 .highlight .nd { color: #268BD2 } /* Name.Decorator */
 .highlight .ni { color: #CB4B16 } /* Name.Entity */
