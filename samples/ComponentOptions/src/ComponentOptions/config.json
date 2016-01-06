@@ -1,0 +1,5 @@
+﻿{
+  "ConsoleWriter": {
+    "Message": "Hello World from config.json!"
+  }
+}
