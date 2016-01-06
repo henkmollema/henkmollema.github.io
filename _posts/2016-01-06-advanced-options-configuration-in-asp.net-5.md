@@ -111,7 +111,7 @@ public static void AddConsoleWriter(this IServiceCollection services, IConfigura
 }
 ```
 
-To add the `config.json` file to our app, add a constructor in the startup class:
+To populate our configuration with the `config.json` file, add a constructor in the startup class:
 
 ```csharp
 public Startup()
@@ -136,7 +136,7 @@ We retrieve the section in the configuration properties by its name: `ConsoleWri
 Hello World from config.json!
 ```
 
-We can make our live a bit easier by using a default section name in the component registration:
+We can make our life a bit easier by using a default section name in the component registration:
 
 ```csharp
 public static void AddConsoleWriter(this IServiceCollection services, IConfiguration config)
