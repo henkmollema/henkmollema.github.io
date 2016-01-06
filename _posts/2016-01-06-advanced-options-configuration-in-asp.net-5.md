@@ -39,7 +39,7 @@ public class ConsoleWriterOptions
 }
 ```
 
-The `ConsoleWriter` class can be added to the services using a convient extension method:
+The `ConsoleWriter` class can be added to the services using a convenient extension method:
 
 ```csharp
 public static void AddConsoleWriter(this IServiceCollection services)
