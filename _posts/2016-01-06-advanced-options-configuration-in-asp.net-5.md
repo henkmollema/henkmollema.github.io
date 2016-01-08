@@ -3,7 +3,7 @@ layout: post
 title: Advanced options configuration in ASP.NET 5
 ---
 
-ASP.NET 5 comes with a completely new [Options framework](https://github.com/aspnet/Options) for accessing and configuration POCO settings. There are a few ways to configure the options and I'ld like to elaborate on some more advanced features.
+ASP.NET 5 comes with a completely new [Options framework](https://github.com/aspnet/Options) for accessing and configuration POCO settings. There are a few ways to configure the options and I'd like to elaborate on some more advanced features.
 
 ## Component settings
 When building a component-based system, these components probably have some settings. We define a component called `ConsoleWriter` implementing the `IConsoleWriter` interface:
@@ -161,7 +161,7 @@ It tries to cast the given `IConfiguration` object to an `IConfigurationSection`
 services.AddConsoleWriter(Configuration);
 ```
 
-And it will use thed default `ConsoleWriter` section. However, if the settings happens to be in another section, we can still pass that section:
+And it will use the default `ConsoleWriter` section. However, if the settings happens to be in another section, we can still pass that section:
 
 ```csharp
 services.AddConsoleWriter(Configuration.GetSection("App:CustomConsoleWriter"));
@@ -179,7 +179,7 @@ public class AppSettings
 }
 ```
 
-Now we want to configure some settings if the ConsoleWriter component is added to the application. To accomplish, we can implement the `IConfigureOptions<T>` interface:
+Now we want to configure some settings if the ConsoleWriter component is added to the application. To accomplish, we can implement the `IConfigureOptions<T>` interface which defines a `Configure(T)` method:
 
 ```csharp
 public class ConfigureAppSettings : IConfigureOptions<AppSettings>
@@ -191,13 +191,13 @@ public class ConfigureAppSettings : IConfigureOptions<AppSettings>
 }
 ```
 
-The interface defines a method `Configure(T options)` which gets called by the Options framework when the options are being build. We have to configure this interface in the services:
+We can configure this class in the service collection by calling `ConfigureOptions<T>`:
 
 ```csharp
 services.ConfigureOptions<ConfigureAppSettings>();
 ```
 
-This adds the `IConfigureOptions<AppSettings>` implementation to the service collection causing the `OptionsManager` to call the `Configure` method.
+This adds the `IConfigureOptions<AppSettings>` implementation to the service collection causing the `OptionsManager` to call the `Configure` method when a service requests an `IOptions<T>`. 
 
 ## Conclusion
 We're now able to write modular and reusable components and pass in configuration at application startup either manually or from a configuration source. We also learned how components can populate application wide settings using the `IConfigureOptions<T>` interface.
