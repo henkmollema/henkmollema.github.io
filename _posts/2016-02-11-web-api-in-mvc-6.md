@@ -3,9 +3,9 @@ layout: post
 title: Web API in MVC 6
 ---
 
-> Note: MVC 6 is soon going to be renamed to ASP.NET MVC Core 1.0 with RC2, when it drops I will update this post to reflect the changes.
-
 With MVC 6 in ASP.NET 5, the MVC and Web API framework have been merged into one framework called MVC. This is a good thing, since MVC and Web API share a lot of functionality, yet there always were subtle differences between MVC and Web API.
+
+> Note: MVC 6 is soon going to be renamed to ASP.NET MVC Core 1.0 with RC2, when it drops I will update this post to reflect the changes.
 
 However, merging these two into one also made it more diffucult to distinguish one from another. For example, the `Microsoft.AspNet.WebApi` represents the Web API 5.x.x framework, not the new one. But, when you include `Microsoft.AspNet.Mvc` (`v6.0.0-rc1-final1` for example), you get the complete package. This will contain _all_ the out-of-the-box features the MVC framework offers. Such as Razor, tag helpers and model binding.
 
