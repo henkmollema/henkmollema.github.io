@@ -3,8 +3,6 @@ layout: post
 title: Web API in MVC 6
 ---
 
-# Web API in MVC 6
-
 > Note: MVC 6 is soon going to be renamed to ASP.NET MVC Core 1.0 with RC2, when it drops I will update this post to reflect the changes.
 
 With MVC 6 in ASP.NET 5, the MVC and Web API framework have been merged into one framework called MVC. This is a good thing, since MVC and Web API share a lot of functionality, yet there always were subtle differences between MVC and Web API.
@@ -50,7 +48,7 @@ public void Configure(IApplicationBuilder app)
 ## Controllers
 The 'old' Web API comes with its own controller base class: `ApiController`. In the new world there is no such thing, only the default `Controller` class. Unfortunately, this is a rather large base class and it's tied to model binding, views and JSON.NET.
 
-However, in the new framework controller classes don't have to derive from `Controller` to be picked up by the routing mechanism. Just appending the name with `Controller` is enough. We can also build our own controller base class. Let's call it `ApiController`, just for old times sake:
+Fortunately, in the new framework controller classes don't have to derive from `Controller` to be picked up by the routing mechanism. Just appending the name with `Controller` is enough. This allows us to build our own controller base class. Let's call it `ApiController`, just for old times sake:
 
 ```csharp
 /// <summary>
@@ -71,7 +69,9 @@ public abstract class ApiController
 }
 ```
 
-The `[ActionContext]` attribute specifies that the property should be set with the current `ActionContext` when MVC creates the controller. The `ActionContext` provides information about the current request.
+The `[ActionContext]` attribute specifies that the property should be set with the current `ActionContext` when MVC creates the controller. The `ActionContext` provides information about the current request. Full source [here](https://github.com/henkmollema/henkmollema.github.io/tree/master/samples/WebApi/ApiController.cs).
+
+> Note: in RC2, there is going to be a [`ControllerBase`](https://github.com/aspnet/Mvc/tree/6.0.0-rc1/src/Microsoft.AspNetCore.Mvc.Core/ControllerBase.cs) class in the MVC Core package which is not tied to views. This also might suite your needs. However, it is still a lot bigger than ours.
 
 ## Conclusion
 We can now build a minimal Web API using the MVC 6 framework. The new modular package structure allows us to just pull in the packages we need and create a lean and simple application.
