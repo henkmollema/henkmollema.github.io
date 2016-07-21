@@ -68,7 +68,7 @@ public abstract class ApiController
 }
 ```
 
-The `[Controller]` attribute indicates that the type or any derived type is considered as a controller by the default controller discovery mechanism. The `[ActionContext]` attribute specifies that the property should be set with the current `ActionContext` when MVC creates the controller. The `ActionContext` provides information about the current request. Full source [here](https://github.com/henkmollema/henkmollema.github.io/tree/master/samples/WebApi/ApiController.cs).
+The `[Controller]` attribute indicates that the type or any derived type is considered as a controller by the default controller discovery mechanism. The `[ActionContext]` attribute specifies that the property should be set with the current `ActionContext` when MVC creates the controller. The `ActionContext` provides information about the current request. Full source [here](https://github.com/henkmollema/henkmollema.github.io/tree/master/samples/WebApi).
 
 > ASP.NET Core MVC also offers a [`ControllerBase`](https://github.com/aspnet/Mvc/blob/1.0.0/src/Microsoft.AspNetCore.Mvc.Core/ControllerBase.cs) class which provides a controller base class just without views support. It's still much larger than ours though. Use it if you find it convenient.
 
