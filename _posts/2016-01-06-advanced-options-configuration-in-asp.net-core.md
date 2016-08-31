@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Advanced options configuration in ASP.NET 5
+title: Advanced options configuration in ASP.NET Core
 ---
 
-ASP.NET 5 comes with a completely new [Options framework](https://github.com/aspnet/Options) for accessing and configuration POCO settings. There are a few ways to configure the options and I'd like to elaborate on some more advanced features.
+ASP.NET Core comes with a completely new [Options framework](https://github.com/aspnet/Options) for accessing and configuration POCO settings. There are a few ways to configure the options and I'd like to elaborate on some more advanced features.
 
 ## Component settings
 When building a component-based system, these components probably have some settings. We define a component called `ConsoleWriter` implementing the `IConsoleWriter` interface:
