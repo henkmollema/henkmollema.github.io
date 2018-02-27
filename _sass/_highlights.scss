@@ -1,5 +1,5 @@
 
-.highlight {
+div.highlight {
   background-color: #fefefe;
   padding: 7px 7px 7px 10px;
   border: 1px solid #ddd;
@@ -11,17 +11,15 @@
 }
 
 code {
+    font-family:'Consolas', 'Bitstream Vera Sans Mono','Courier', monospace;
+}
+
+p code {
     font-size: 85%;
     background-color: rgba(0,0,0,0.04);
     border-radius: 3px;
     padding: 2px 4px;
-    font-family:'Consolas', 'Bitstream Vera Sans Mono','Courier', monospace;
 }
-
-div.highlight code {
-    background-color: inherit;
-    font-size: 14px; 
-} 
 
 .highlight .c { color: #26A65B   } /* Comment */
 .highlight .err { color: #93A1A1 } /* Error */
